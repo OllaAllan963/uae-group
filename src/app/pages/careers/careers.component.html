@@ -1,0 +1,11 @@
+<section class="headings d-flex justify-content-center align-items-center mb-3" [ngStyle]="{
+    'background': 'linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url(' + backgroundImage + ') no-repeat center center',
+    'background-size': 'cover'
+  }">
+    <div class="text-heading text-center">
+        <div class="container">
+            <h1 class="tajawal-extrabold" [ngStyle]="{'letter-spacing' : currentLang === 'en' ? '6px' : '0px'}">{{
+                'validation.OurCareers' | translate}}</h1>
+        </div>
+    </div>
+</section>

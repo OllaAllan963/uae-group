@@ -1,0 +1,50 @@
+<section class="feature-categories bg-white rec-pro">
+    <div class="container-fluid">
+        <div class="sec-title text-center">
+            <h2 class="tajawal-bold" [ngStyle]="{ 'color': mainColor }" data-aos="zoom-in" data-aos-duration="800">
+                {{ currentLang === 'en' ? uaeInvestmentDevelopmentCActs.title : uaeInvestmentDevelopmentCActs.titleAr }}
+            </h2>
+            <p class="tajawal-regular" data-aos="zoom-in" data-aos-duration="1000">
+                {{ currentLang === 'en' ? uaeInvestmentDevelopmentCActs.caption :
+                uaeInvestmentDevelopmentCActs.captionAr }}
+            </p>
+        </div>
+        @if(uaeInvestmentDevelopmentCActs && currentLang === 'en'){
+        <div class="carousel-container" (mouseenter)="pauseScroll()" (mouseleave)="resumeScroll()">
+            <div class="carousel-track" #carousel>
+                @for(activity of uaeInvestmentDevelopmentCActs.activities;track activity.id){
+                <div class="carousel-card glass" [attr.data-aos]="'zoom-in'" data-aos-duration="1200">
+                    <div class="thumb">
+                        <img [src]="activity.image" [alt]="activity.name" />
+                    </div>
+                    <div class="details">
+                        <h4 class="tajawal-medium">
+                            {{ activity.name }}
+                        </h4>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        }
+
+        @if(uaeInvestmentDevelopmentCActs && currentLang === 'ar'){
+        <div class="carousel-container" (mouseenter)="pauseScroll()" (mouseleave)="resumeScroll()">
+            <div class="carousel-track" #carousel>
+                @for(activity of uaeInvestmentDevelopmentCActs.activities;track activity.id){
+                <div class="carousel-card glass" [attr.data-aos]="'zoom-in'" data-aos-duration="1200">
+                    <div class="thumb">
+                        <img [src]="activity.image" [alt]="activity.nameAr" />
+                    </div>
+                    <div class="details">
+                        <h4 class="tajawal-medium">
+                            {{ activity.nameAr }}
+                        </h4>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</section>
