@@ -19,7 +19,7 @@ export class FooterComponent {
   currentLang: string = "ar"
   tel: number = +97142570022;
   Fax: number = +97142570033;
-  Mod: number = +971508877990
+  Mod: number = +971505585881;
   companiesServices = inject(CompaniesService);
   companies: Array<ICompany> = [];
 
