@@ -39,7 +39,7 @@
                     translate}}</h5>
                 <p class="tajawal-medium">{{ 'validation.Email' | translate}}: ceo&#64;ueagroup.ae</p>
 
-                <button class="btn btn-outline-light px-4 py-2 mt-2 tajawal-medium"
+                <button [routerLink]="'/contact-us'" class="btn btn-outline-light px-4 py-2 mt-2 tajawal-medium"
                     [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
                     {{ 'validation.ContactUs' | translate}}
                     @if(currentLang === 'en'){
