@@ -1,0 +1,43 @@
+.footer-custom {
+    background: #040405;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0 5px;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.social-icon:hover,
+.nav-link:hover {
+    color: #ec1c23 !important;
+    text-decoration: none;
+}
+
+.btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-outline-light:hover {
+    color: #ec1c23;
+    border-color: #ec1c23;
+    background-color: #040405;
+}
+
+/* ///mobile */
+@media (max-width: 576px) {
+    footer {
+        text-align: center;
+    }
+
+    .quick-links {
+        margin-top: 1.5rem;
+    }
+}

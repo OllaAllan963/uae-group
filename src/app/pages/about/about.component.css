@@ -1,0 +1,163 @@
+ .headings {
+     margin-top: 121px;
+     /* background: linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url('/assets/images/about-us.jpg') no-repeat center center; */
+     width: 100%;
+     height: 50vh;
+     background-size: cover;
+ }
+
+ .text-heading {
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-flex: 1;
+     -ms-flex: 1 1 auto;
+     flex: 1 1 auto;
+     -webkit-box-align: center;
+     -ms-flex-align: center;
+     align-items: center;
+ }
+
+ .headings h1 {
+    line-height: 1.5 !important;
+     color: #fff;
+     font-size: 3.5rem;
+     text-transform: uppercase;
+     letter-spacing: 10px;
+ }
+
+ /* second-part */
+
+ .container {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: center;
+     max-width: 1200px;
+     margin: 0 auto;
+     gap: 2rem;
+     padding: 60px 20px;
+ }
+
+ .text {
+     max-width: 500px;
+     font-size: 1.1rem;
+     line-height: 1.5;
+     font-size: 20px;
+     text-align: justify;
+     color: #000000;
+ }
+
+ .text strong {
+     font-size: 1.2rem;
+ }
+
+ .image {
+     display: flex;
+     justify-content: center;
+ }
+
+ .image img {
+     width: 100%;
+     max-width: 550px;
+     border-radius: 12px;
+     object-fit: cover;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+ }
+
+ /* objectives */
+ .objectives-section {
+     background: #F6F6F6;
+ }
+
+ .objectives-content,
+ .values-content {
+     max-width: 500px;
+ }
+
+ .objectives-content h2,
+ .values-content h2 {
+     font-size: 2rem;
+     margin-bottom: 1.5rem;
+ }
+
+ .objectives-content ul {
+     list-style: none;
+     padding: 0;
+ }
+
+ .objectives-content ul li {
+     position: relative;
+     padding-left: 25px;
+     margin-bottom: 1rem;
+     font-size: 1.1rem;
+     color: #000000;
+     line-height: 1.5;
+ }
+
+ .objectives-content ul li::before {
+     content: "●";
+     color: #ec1c23;
+     position: absolute;
+     top: 0;
+ }
+
+ /* For LTR */
+ :dir(ltr) ul li::before {
+     left: 0 !important;
+ }
+
+ /* For RTL */
+ :dir(rtl) ul li::before {
+     right: 0 !important;
+ }
+
+ /* 
+ last-part */
+ .value-item {
+     border-left: 3px solid #ec1c23;
+     text-align: justify;
+     padding-left: 20px;
+     margin-bottom: 40px;
+ }
+
+ .value-title {
+     font-weight: bold;
+     font-size: 22px;
+ }
+
+ .value-item p {
+     margin-top: 10px;
+     font-size: 18px;
+     color: #333;
+     line-height: 1.6;
+ }
+
+ @media (max-width: 768px) {
+     .objectives-container {
+         flex-direction: column;
+         text-align: center;
+     }
+
+     .objectives-content,
+     .values-content {
+         text-align: left;
+     }
+ }
+
+
+ @media (max-width: 1200px) {
+     .headings {
+         margin-top: 92px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .headings h1 {
+         font-size: 3rem;
+     }
+
+     .container {
+         padding: 60px 15px;
+     }
+ }

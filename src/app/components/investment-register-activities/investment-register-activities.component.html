@@ -1,0 +1,32 @@
+<section class="feature-categories bg-white rec-pro">
+    <div class="container-fluid">
+        <div class="sec-title text-center">
+            <h2 class="tajawal-bold" [ngStyle]="{ 'color': mainColor }" data-aos="zoom-in" data-aos-duration="800">
+                {{ currentLang === 'en' ? uaeInvestmentDevelopmentCActs.title : uaeInvestmentDevelopmentCActs.titleAr }}
+            </h2>
+            <p class="tajawal-regular" data-aos="zoom-in" data-aos-duration="1000">
+                {{ currentLang === 'en' ? uaeInvestmentDevelopmentCActs.caption :
+                uaeInvestmentDevelopmentCActs.captionAr }}
+            </p>
+        </div>
+
+        @if(uaeInvestmentDevelopmentCActs){
+        <div class="carousel-container" #container>
+            <div class="carousel-track" #carousel>
+                @for(activity of uaeInvestmentDevelopmentCActs.activities; track activity.id){
+                <div class="carousel-card glass" [attr.data-aos]="'zoom-in'">
+                    <div class="thumb">
+                        <img [src]="activity.image" [alt]="currentLang === 'en' ? activity.name : activity.nameAr" />
+                    </div>
+                    <div class="details">
+                        <h4 class="tajawal-medium">
+                            {{ currentLang === 'en' ? activity.name : activity.nameAr }}
+                        </h4>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div>
+</section>
