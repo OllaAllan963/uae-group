@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Tajawal", sans-serif !important;
+}
+
+.rtl {
+    direction: rtl;
+    /* Set text direction to right-to-left */
+    text-align: right;
+    /* Align text to the right */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box !important;
+}
+
+
+.tajawal-extralight {
+    font-weight: 200 !important;
+    font-style: normal !important;
+}
+
+.tajawal-light {
+    font-weight: 300 !important;
+    font-style: normal !important;
+}
+
+.tajawal-regular {
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+
+.tajawal-medium {
+    font-weight: 500 !important;
+    font-style: normal !important;
+}
+
+.tajawal-bold {
+    font-weight: 700 !important;
+    font-style: normal !important;
+}
+
+.tajawal-extrabold {
+    font-weight: 800 !important;
+    font-style: normal !important;
+}
+
+.tajawal-black {
+    font-weight: 900 !important;
+    font-style: normal !important;
+}
+
+
+/* general */
+a {
+    text-decoration: none !important;
+}
+
+.main-gradient {
+    background: (to right, #ffffff 0%, #ec1c23 50%, #ffffff 100%);
+}
+
+.justified-text {
+    text-align: justify;
+}
+
+/* black: #040405;
+red:#ec1c23
+green:#3d8f57 */

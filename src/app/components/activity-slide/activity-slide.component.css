@@ -1,0 +1,64 @@
+:root {
+    --primary: #ec994b;
+    --white: #ffffff;
+    --bg: #f5f5f5;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 1440px) {
+    html {
+        zoom: 1.5;
+    }
+}
+
+@media (min-width: 2560px) {
+    html {
+        zoom: 1.7;
+    }
+}
+
+@media (min-width: 3860px) {
+    html {
+        zoom: 2.5;
+    }
+}
+
+
+@media (max-width:500px) {
+    .tranding-slide-img img {
+        width: 28rem !important;
+        height: 36rem !important;
+    }
+}
+
+.tranding-slide-img img {
+    width: 37rem;
+    height: 42rem;
+    border-radius: 2rem;
+    object-fit: cover;
+}
+
+.tranding-slide-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.tranding-slide-content .tranding-slide-content-bottom {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    color: var(--white);
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+    display: none;
+}

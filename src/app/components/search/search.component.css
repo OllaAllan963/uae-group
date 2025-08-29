@@ -1,0 +1,11 @@
+.form-control:focus {
+    border-color: #ec1c23 !important;
+    box-shadow: 0 0 0 0.25rem rgba(236, 28, 35, 0.25) !important;
+    transition: 0.4s ease-in-out;
+}
+
+.search-results .list-group-item {
+    text-align: start;
+    /* auto aligns left in EN, right in AR */
+    cursor: pointer;
+}

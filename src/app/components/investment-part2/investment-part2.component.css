@@ -1,0 +1,57 @@
+.inv {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #F6F6F6;
+}
+
+.investments-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 60px;
+    /* padding: 80px 20px; */
+    padding: 20px;
+    max-width: 1260px;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+h3 {
+    color: #000000;
+}
+
+p {
+    color: #000000;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+    text-align: justify !important;
+}
+
+img {
+    border-radius: 5px;
+}
+
+.investments-content img {
+    width: 100%;
+    object-fit: cover;
+    max-width: 1005;
+    height: auto;
+    box-sizing: border-box;
+    object-fit: cover;
+    border: 0 solid #e5e7eb;
+    border-radius: 8px;
+    display: block;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Custom card styling for small screens */
+@media (max-width:1200px) {
+    .investments-content {
+        grid-template-columns: 1fr;
+        /* padding: 80px 20px 0px; */
+    }
+
+    .investments-content img {
+        padding: 10px;
+    }
+}
