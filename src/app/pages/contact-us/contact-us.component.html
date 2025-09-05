@@ -1,0 +1,270 @@
+<section class="headings d-flex justify-content-center align-items-center mb-3" [ngStyle]="{
+    'background': 'linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url(' + backgroundImage + ') no-repeat center center',
+    'background-size': 'cover'
+  }">
+    <div class="text-heading text-center">
+        <div class="container">
+            @if(currentLang === 'en'){
+            <h1 class="tajawal-extrabold en">{{ 'validation.GetinTouch' | translate}}</h1>
+            }@else{
+            <h1 class="tajawal-extrabold">{{ 'validation.GetinTouch' | translate}}</h1>
+            }
+        </div>
+    </div>
+</section>
+
+<div class="container py-5" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+    <div class="row gy-4">
+        <!-- Contact Info Section -->
+        <div class="contact-info col-12 col-md-5 mb-3">
+            <h5 [ngStyle]="{ 'color': mainColor }" class="section-title tajawal-bold">{{ 'validation.ContactDetails' |
+                translate}}:</h5>
+            <hr>
+            <div class="d-flex justify-content-start align-items-center">
+                <p class="section-content tajawal-medium">{{ 'validation.OfficePhone' | translate}}:
+                @if(currentLang === 'en'){
+                +
+                }
+                {{landlineNumber}}
+                @if(currentLang !== 'en'){
+                +
+                }
+                </p>
+            </div>
+            <div class="d-flex justify-content-start align-items-center">
+                <p class="section-content tajawal-medium">{{ 'validation.OfficeFax' | translate}}:
+                    @if(currentLang === 'en'){
+                    +
+                    }
+                    {{faxNumber}}
+                    @if(currentLang !== 'en'){
+                    +
+                    }
+                </p>
+            </div>
+            <div class="d-flex justify-content-start align-items-center">
+                <p class="section-content tajawal-medium">{{ 'validation.MobilePhone' | translate}}:
+                    @if(currentLang === 'en'){
+                    +
+                    }
+                    {{mobileNumber}}
+                    @if(currentLang !== 'en'){
+                    +
+                    }
+                </p>
+            </div>
+            <div class="d-flex justify-content-start align-items-center">
+                <p class="section-content tajawal-medium">{{ 'validation.Email' | translate}}: {{ emailo }}</p>
+            </div>
+
+            <h5 [ngStyle]="{ 'color': mainColor }" class="section-title mt-4 tajawal-bold">{{ 'validation.Address' |
+                translate}}:</h5>
+            <hr>
+            <!-- <div class="d-flex justify-content-start align-items-center">
+                <p class="section-content tajawal-medium">{{ 'validation.BuildingNumber' | translate}}: 30</p>
+            </div> -->
+            <div class="d-flex justify-content-start align-items-center">
+                <p class="section-content tajawal-medium">{{ address }}</p>
+            </div>
+        </div>
+
+        <!-- Form Section -->
+        <div class="col-12 col-md-7 mb-3">
+            <form #contactForm="ngForm">
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <label for="name" class="form-label tajawal-medium">{{ 'validation.Name' | translate}} <span
+                                style="color:#ec1c23">*</span></label>
+                        <input ngModel name="name" #name="ngModel" type="text" class="form-control" id="name"
+                            [placeholder]="'validation.Name' | translate" required
+                            [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched),'rtl':currentLang === 'ar'}">
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+                            {{ 'errors.Required' | translate }}
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="email" class="form-label tajawal-medium">{{ 'validation.Email' |
+                            translate}} <span style="color:#ec1c23">*</span></label>
+                        <input ngModel name="email" #email="ngModel" type="email" class="form-control" id="email"
+                            [placeholder]="'validation.Email' | translate" required
+                            [pattern]="'^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$'"
+                            [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched),'rtl':currentLang === 'ar'}">
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                            <div *ngIf="email.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                            <div *ngIf="email.errors?.['pattern']">
+                                {{ 'errors.EmailFormat' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="phone" class="form-label tajawal-medium">{{ 'validation.PhoneNumber' |
+                            translate}} <span style="color:#ec1c23">*</span></label>
+                        <!-- <div class="input-group">
+                            <span class="input-group-text">
+                                <img src="https://flagcdn.com/w40/om.png" alt="Oman Flag" width="20">
+                            </span>
+                            <input ngModel type="tel" class="form-control" id="phone" placeholder="+968" required>
+                        </div> -->
+                        <!-- phone-input.component.html -->
+                        <input ngModel name="phone" #phone="ngModel" id="phone" type="tel" class="form-control"
+                            [placeholder]="currentLang === 'en' ? 'ex: 0501234567' : 'مثال: 0501234567'" #phoneInput
+                            required [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}"
+                            pattern="^\+?\d{7,15}$"
+                            [ngClass]="{'is-invalid': phone.invalid && (phone.dirty || phone.touched),'rtl':currentLang === 'ar'}">
+                        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">
+                            <div *ngIf="phone.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                            <div *ngIf="phone.errors?.['pattern']">
+                                {{ 'errors.PhoneFormat' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="company" class="form-label tajawal-medium">{{ 'validation.Company' |
+                            translate}} <span style="color:#ec1c23">*</span></label>
+                        <!-- <input ngModel name="company" #company="ngModel" type="text" class="form-control" id="company"
+                            placeholder="Company" required> -->
+                        <select ngModel name="company" #company="ngModel" id="company" class="form-select" required
+                            [(ngModel)]="selectedCompanyId" (ngModelChange)="onCompanyChange($event)"
+                            [ngClass]="{'is-invalid': company.invalid && (company.dirty || company.touched),'rtl':currentLang === 'ar'}">
+                            <option [value]="''" disabled selected>{{ 'validation.SelectACompany' | translate}}</option>
+                            @for(company of companies;track company.id;let i=$index){
+                            <option [value]="company.id">
+                                @if(currentLang === 'en'){
+                                {{ company.title }}
+                                }@else{
+                                {{ company.titleAr }}
+                                }
+                            </option>
+                            }
+                        </select>
+                        <!-- Error Message -->
+                        <div *ngIf="company.invalid && (company.dirty || company.touched)" class="text-danger">
+                            <div *ngIf="company.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    @if(selectedCompany){
+                    <div class="col-12 col-md-6">
+                        <label for="activity" class="form-label tajawal-medium">{{ 'validation.CompanyActivity' |
+                            translate}} <span style="color:#ec1c23">*</span></label>
+                        <!-- <input ngMo del name="company" #company="ngModel" type="text" class="form-control" id="company"
+                            placeholder="Company" required> -->
+                        <select [(ngModel)]="selectedActivity" name="activity" #activity="ngModel" id="activity"
+                            class="form-select" required
+                            [ngClass]="{'is-invalid': activity.invalid && (activity.dirty || activity.touched),'rtl':currentLang === 'ar'}">
+                            <option [value]="''" disabled selected>{{ 'validation.SelectAnActivity' | translate}}
+                            </option>
+                            @for(act of companyDetails.activities;track act.id;let i=$index){
+                            <option [value]="currentLang === 'en' ? act.name : act.nameAr">
+                                @if(currentLang === 'en'){
+                                {{ act.name }}
+                                }@else{
+                                {{ act.nameAr }}
+                                }
+                            </option>
+                            }
+                        </select>
+                        <!-- Error Message -->
+                        <div *ngIf="activity.invalid && (activity.dirty || activity.touched)" class="text-danger">
+                            <div *ngIf="activity.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    }
+
+                    @if(selectedCompany && selectedCompany.id===2 ){
+                    <div class="col-12 col-md-6">
+                        <label for="propServiceType" class="form-label tajawal-medium">{{ 'validation.ServiceType' |
+                            translate}} <span style="color:#ec1c23">*</span></label>
+                        <!-- <input ngMo del name="company" #company="ngModel" type="text" class="form-control" id="company"
+                            placeholder="Company" required> -->
+                        <select ngModel name="propServiceType" #propServiceType="ngModel" id="propServiceType"
+                            class="form-select" required [(ngModel)]="selectedPropServiceType"
+                            [ngClass]="{'is-invalid': propServiceType.invalid && (propServiceType.dirty || propServiceType.touched),'rtl':currentLang === 'ar'}">
+                            <option [value]="''" disabled selected>{{ 'validation.SelectTheServiceType' | translate}}
+                            </option>
+                            @for(ser of propServices;track ser.id;let i=$index){
+                            <option [value]="currentLang === 'en' ? ser.name : ser.nameAr">
+                                @if(currentLang === 'en'){
+                                {{ ser.name }}
+                                }@else{
+                                {{ ser.nameAr }}
+                                }
+                            </option>
+                            }
+                        </select>
+                        <!-- Error Message -->
+                        <div *ngIf="propServiceType.invalid && (propServiceType.dirty || propServiceType.touched)"
+                            class="text-danger">
+                            <div *ngIf="propServiceType.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    }
+
+                    <div class="col-12">
+                        <label for="subject" class="form-label tajawal-medium">{{ 'validation.Subject' |
+                            translate}} <span style="color:#ec1c23">*</span></label>
+                        <textarea ngModel name="subject" #subject="ngModel" class="form-control" id="subject" rows="4"
+                            [placeholder]="'validation.Subject' | translate" required
+                            [ngClass]="{'is-invalid': subject.invalid && (subject.dirty || subject.touched),'rtl':currentLang === 'ar'}"></textarea>
+                        <!-- Error Message -->
+                        <div *ngIf="subject.invalid && (subject.dirty || subject.touched)" class="text-danger">
+                            <div *ngIf="subject.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="message" class="form-label tajawal-medium">{{ 'validation.YourMessage' |
+                            translate}} <span style="color:#ec1c23">*</span></label>
+                        <textarea ngModel name="message" #message="ngModel" class="form-control" id="message" rows="4"
+                            [placeholder]="'validation.Message' | translate" required
+                            [ngClass]="{'is-invalid': message.invalid && (message.dirty || message.touched),'rtl':currentLang === 'ar'}"></textarea>
+                        <div *ngIf="message.invalid && (message.dirty || message.touched)" class="text-danger">
+                            <div *ngIf="message.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-12 d-flex align-items-center gap-2 flex-wrap">
+                        <img src="https://dummyimage.com/200x50/ccc/000&text=CAPTCHA" alt="captcha" class="captcha-img">
+                        <button type="button" class="btn btn-outline-secondary">⟳</button>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="Enter captcha text" required>
+                    </div> -->
+                    <div class="col-12">
+                        <button [ngStyle]="{ 'background-color': mainColor }" type="submit"
+                            [disabled]="contactForm.invalid" class="btn btn-custom tajawal-bold"
+                            (click)="submit(contactForm)">{{ 'validation.Submit' |
+                            translate}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5" style="padding-bottom: 0 !important;">
+    <div class="row gy-4">
+        <div class="col-12 p-0">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3609.3849956243484!2d55.35046002!3d25.22395465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d7ba60f082d%3A0x82edc810e20b4864!2sFestival%20Tower!5e0!3m2!1sen!2sae!4v1753985714146!5m2!1sen!2sae"
+                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- toast -->
+<app-toast-notification [message]="successMessage" type="success" (closed)="successMessage = ''" />
+
+<app-toast-notification [message]="errorMessage" type="error" (closed)="errorMessage = ''" />

@@ -1,0 +1,186 @@
+<section class="headings d-flex justify-content-center align-items-center mb-3" [ngStyle]="{
+    'background': 'linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url(' + backgroundImage + ') no-repeat center center',
+    'background-size': 'cover'
+  }">
+    <div class="text-heading text-center">
+        <div class="container">
+            <h1 class="tajawal-extrabold" [ngStyle]="{'letter-spacing' : currentLang === 'en' ? '6px' : '0px'}">{{
+                'validation.OurCareers' | translate}}</h1>
+        </div>
+    </div>
+</section>
+
+<!-- Job Listings -->
+<div class="container py-5" [ngStyle]="{ 'direction': currentLang === 'en' ? 'ltr' : 'rtl' }">
+    <div class="sec-title">
+        <h2 class="tajawal-bold" [ngStyle]="{ 'color': mainColor }" data-aos="fade-up" data-aos-duration="800">
+            {{ 'validation.JoinOurTeam' | translate }}
+        </h2>
+        <p class="tajawal-regular" data-aos="fade-up" data-aos-duration="1000">
+            {{ 'validation.ExploreExcitingOpportunities' | translate }}
+        </p>
+    </div>
+
+    <!-- Search Field -->
+    <div class="row justify-content-center mb-4" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1200">
+        <div class="col-md-6">
+            <input type="text" class="form-control" [placeholder]="'validation.SearchJobsPlaceholder' | translate"
+                [(ngModel)]="searchText" />
+        </div>
+    </div>
+
+    <!-- No Results Message -->
+    <div class="row" *ngIf="filteredJobs().length === 0" data-aos="fade-up" data-aos-delay="300"
+        data-aos-duration="1400">
+        <div class="col text-center text-muted">
+            {{ 'validation.NoJobsFound' | translate }}
+        </div>
+    </div>
+
+    <!-- Filtered Job List -->
+    <div class="row" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1400">
+        @for (job of filteredJobs(); track job.id) {
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @if (currentLang === 'en') {
+                        {{ job.title }}
+                        } @else {
+                        {{ job.titleAr }}
+                        }
+                    </h5>
+                    <p class="card-text">
+                        @if (currentLang === 'en') {
+                        {{ job.description }}
+                        } @else {
+                        {{ job.descriptionAr }}
+                        }
+                    </p>
+                    <button [ngStyle]="{ 'background-color': mainColor }" type="submit"
+                        class="btn btn-custom tajawal-bold" (click)="openApplyModal(job)">
+                        {{ 'validation.ApplyNow' | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<!-- Modal Form -->
+<div class="modal fade" id="applyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg" [ngStyle]="{ 'direction': currentLang === 'en' ? 'ltr' : 'rtl' }">
+        <div class="modal-content">
+            <form #careerForm="ngForm" (ngSubmit)="careerForm.valid && submitApplication(careerForm)"
+                enctype="multipart/form-data">
+                <div class="modal-header justify-content-between">
+                    <h5 class="modal-title">
+                        {{ 'validation.ApplyFor' | translate }}
+                        @if (currentLang === 'en') {
+                        {{ selectedJob?.title }}
+                        } @else {
+                        {{ selectedJob?.titleAr }}
+                        }
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        [ngStyle]="{ 'margin-left': currentLang === 'ar' ? 'inherit' : '' }"></button>
+                </div>
+
+
+                <div class="modal-body">
+                    <!-- FullName -->
+                    <div class="mb-3">
+                        <label class="form-label">{{ 'validation.FullName' | translate }} <span
+                                style="color:#ec1c23">*</span></label>
+                        <input id="fullName" type="text" class="form-control" name="fullName"
+                            [(ngModel)]="formData.fullName" required [attr.dir]="currentLang === 'ar' ? 'rtl' : 'ltr'"
+                            [placeholder]="'validation.FullName' | translate" #fullName="ngModel"
+                            [ngClass]="{'is-invalid': fullName.invalid && (fullName.dirty || fullName.touched),'rtl':currentLang === 'ar'}" />
+                        <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)" class="text-danger">
+                            {{ 'errors.Required' | translate }}
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            {{ 'validation.Email' | translate }} <span style="color:#ec1c23">*</span>
+                        </label>
+                        <input id="email" type="email" class="form-control" name="email" [(ngModel)]="formData.email"
+                            required [attr.dir]="currentLang === 'ar' ? 'rtl' : 'ltr'"
+                            [placeholder]="'validation.Email' | translate" #email="ngModel"
+                            [pattern]="'^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$'"
+                            [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched),'rtl':currentLang === 'ar'}" />
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                            <div *ngIf="email.errors?.['required']">
+                                {{ 'errors.Required' | translate }}
+                            </div>
+                            <div *ngIf="email.errors?.['pattern']">
+                                {{ 'errors.EmailFormat' | translate }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cover Letter -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            {{ 'validation.CoverLetter' | translate }} <span style="color:#ec1c23">*</span>
+                        </label>
+                        <textarea class="form-control" name="coverLetter" [(ngModel)]="formData.coverLetter" required
+                            rows="4" [attr.dir]="currentLang === 'ar' ? 'rtl' : 'ltr'"
+                            [placeholder]="'validation.CoverLetter' | translate" #coverLetter="ngModel"
+                            [ngClass]="{'is-invalid': coverLetter.invalid && (coverLetter.dirty || coverLetter.touched),'rtl':currentLang === 'ar'}"></textarea>
+                        <div *ngIf="coverLetter.invalid && (coverLetter.dirty || coverLetter.touched)"
+                            class="text-danger">
+                            {{ 'errors.Required' | translate }}
+                        </div>
+                    </div>
+
+                    <!-- Resume -->
+                    <div class="mb-3">
+                        <label class="form-label">
+                            {{ 'validation.UploadResume' | translate }} <span style="color:#ec1c23">*</span>
+                        </label>
+                        <input id="resume" type="file" class="form-control" name="resume" required
+                            #resumeInput="ngModel" (change)="onFileChange($event, resumeInput)"
+                            [attr.dir]="currentLang === 'ar' ? 'rtl' : 'ltr'"
+                            [ngClass]="{ 'is-invalid': resumeInput.invalid && (resumeInput.dirty || resumeInput.touched),'rtl':currentLang === 'ar' }"
+                            ngModel />
+
+                        <small class="text-muted d-block">
+                            {{ 'errors.MaxSizeNote' | translate }}
+                        </small>
+
+                        <div *ngIf="resumeInput.invalid && (resumeInput.dirty || resumeInput.touched)"
+                            class="text-danger mt-1">
+                            {{ 'errors.Required' | translate }}
+                        </div>
+
+                        <div *ngIf="errorMessage" class="text-danger mt-1">
+                            {{ errorMessage }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-custom" [ngStyle]="{ 'background-color': mainColor }"
+                        [disabled]="!careerForm.form.valid || !this.formData.resume">
+                        {{ 'validation.Submit' | translate }}
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="cancelFun(careerForm)">
+                        {{ 'validation.Cancel' | translate }}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- toast -->
+<app-toast-notification [message]="successMessage" type="success" (closed)="successMessage = ''" />
+
+<app-toast-notification [message]="errorMessage" type="error" (closed)="errorMessage = ''" />

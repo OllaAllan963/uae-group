@@ -1,0 +1,126 @@
+<footer class="footer-custom text-white pt-3 " [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+    <div class="container">
+        <div class="row">
+
+            <!-- Column 1 -->
+            <div class="col-md-4 col-lg-4 col-sm-6 mb-3">
+                <h5 class="tajawal-bold" [ngStyle]="{ 'color': mainColor }">{{ 'validation.UAEGROUP' | translate}}</h5>
+                <p class="mb-1 tajawal-medium">Festival Tower</p>
+                <p class="mb-1 tajawal-medium">Dubai UAE</p>
+                <p class="mb-1 tajawal-medium">{{ 'validation.Tel' | translate}}:
+                    @if(currentLang === 'en'){
+                    +
+                    }
+                    {{tel}}
+                    @if(currentLang !== 'en'){
+                    +
+                    }
+                </p>
+                <p class="mb-1 tajawal-medium">{{ 'validation.Fax' | translate}}:
+                    @if(currentLang === 'en'){
+                    +
+                    }
+                    {{Fax}}
+                    @if(currentLang !== 'en'){
+                    +
+                    }
+                </p>
+                <p class="mb-1 tajawal-medium">{{ 'validation.Mob' | translate}}:
+                    @if(currentLang === 'en'){
+                    +
+                    }
+                    {{Mod}}
+                    @if(currentLang !== 'en'){
+                    +
+                    }
+                </p>
+
+                <h5 class="tajawal-bold mt-4" [ngStyle]="{ 'color': mainColor }">{{ 'validation.InvestorsRelations' |
+                    translate}}</h5>
+                <p class="tajawal-medium">{{ 'validation.Email' | translate}}: ceo&#64;ueagroup.ae</p>
+
+                <button [routerLink]="'/contact-us'" class="btn btn-outline-light px-4 py-2 mt-2 tajawal-medium"
+                    [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+                    {{ 'validation.ContactUs' | translate}}
+                    @if(currentLang === 'en'){
+                    <i class="bi bi-arrow-right ms-2"></i>
+                    }@else{
+                    <i class="bi bi-arrow-left ms-2"></i>
+                    }
+                </button>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col-md-4 col-lg-4 col-sm-6 mb-3">
+                <h5 class="tajawal-bold quick-links" [ngStyle]="{ 'color': mainColor }">{{ 'validation.QuickLinks' |
+                    translate}}</h5>
+                <ul class="list-unstyled p-0">
+                    <li><a routerLink="" class="nav-link px-2 text-white tajawal-medium mb-1">{{
+                            'validation.Home' | translate}}</a></li>
+                    <li><a routerLink="about-us" class="nav-link px-2 text-white tajawal-medium mb-1">{{
+                            'validation.AboutUs' | translate}}</a></li>
+                    @for(company of companies;track company.id;let i=$index){
+                    <li><a style="cursor: pointer;" (click)="goToCompany(company)"
+                            class="nav-link px-2 text-white tajawal-medium mb-1">
+                            @if(currentLang === 'en'){
+                            {{ company.title }}
+                            }@else{
+                            {{ company.titleAr }}
+                            }
+                        </a></li>
+                    }
+                    <li><a routerLink="purpose" class="nav-link px-2 text-white tajawal-medium mb-1">{{
+                            'validation.Purpose' |
+                            translate}}</a></li>
+                    <li><a routerLink="contact-us" class="nav-link px-2 text-white tajawal-medium mb-1">{{
+                            'validation.ContactUs' |
+                            translate}}</a></li>
+                    <li><a routerLink="careers" class="nav-link px-2 text-white tajawal-medium mb-1">{{
+                            'validation.Careers' |
+                            translate}}</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Map -->
+            <div class="col-md-4 col-lg-4 ms-lg-auto col-sm-12">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3609.3849956243484!2d55.35046002!3d25.22395465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d7ba60f082d%3A0x82edc810e20b4864!2sFestival%20Tower!5e0!3m2!1sen!2sae!4v1753985714146!5m2!1sen!2sae"
+                    width="100%" height="180" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <!-- Social icons -->
+                <div class="text-center mt-4 d-flex justify-content-center align-items-center">
+                    <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Divider -->
+        <hr class="border-top mt-3 border-light" />
+
+        <!-- Bottom bar -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-center">
+            <h5 class="tajawal-bold mb-3 text-uppercase" [ngStyle]="{ 'color': mainColor }">{{ 'validation.UAEGROUPINV'
+                | translate}}</h5>
+            <a routerLink="/" class="logo">
+                <img src="assets/images/logo.png" [alt]="'validation.UAEGROUP' | translate" class="img-fluid mb-3"
+                    style="max-width: 100%;max-height: 50px;">
+            </a>
+            <p [ngStyle]="{ 'color': mainColor }" class="mb-3 tajawal-medium">
+                @if(currentLang === 'en'){
+                &copy;{{ 'validation.2025' | translate}}
+                }
+                {{ 'validation.UAEGROUP' | translate}}
+                @if(currentLang !== 'en'){
+                {{ 'validation.2025' | translate}}&copy;
+                }
+                {{ 'validation.AllRightsReserved' | translate}}
+            </p>
+        </div>
+    </div>
+</footer>

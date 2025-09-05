@@ -1,0 +1,257 @@
+<section class="headings d-flex justify-content-center align-items-center mb-3" [ngStyle]="{
+    'background': 'linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url(' + backgroundImage + ') no-repeat center center',
+    'background-size': 'cover'
+  }">
+  <div class="text-heading text-center w-100">
+    <div class="container">
+      @if(currentLang === 'en'){
+      <h1 class="tajawal-extrabold en">{{ uaeC.title }}</h1>
+      }@else{
+      <h1 class="tajawal-extrabold">{{ uaeC.titleAr }}</h1>
+      }
+    </div>
+  </div>
+</section>
+
+
+<!-- START SECOND SECTION -->
+<section *ngIf="uaeC" class="container" data-aos="fade-up" data-aos-duration="800">
+  <div class="text">
+    <p [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+      <strong>
+        @if(currentLang === 'en'){
+        {{ uaeC.title }}
+        }@else{
+        {{ uaeC.titleAr }}
+        }
+        @if(currentLang === 'en'){
+        ,
+        }@else{
+        ،
+        }
+      </strong>
+      @if(currentLang === 'en'){
+      {{ uaeC.description }}
+      }@else{
+      {{ uaeC.descriptionAr }}
+      }
+    </p>
+  </div>
+  <div class="video">
+    <!-- <img [src]="uaeC.image" [alt]="uaeC.title"> -->
+    <video #myVideo autoplay muted loop playsinline [attr.aria-label]="currentLang === 'en' ? uaeC.title : uaeC.titleAr"
+      [title]="currentLang === 'en' ? uaeC.title : uaeC.titleAr">
+      <source [src]="uaeC.video" type="video/mp4" />
+      {{ 'validation.YourBrowserDoesNotSupportTheVideoTag' | translate}}.
+    </video>
+  </div>
+</section>
+
+<!-- END SECTION SECOND SECTION -->
+
+<!-- START THIRD SECTION -->
+<div *ngIf="companyDetails" class="third-section" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000"
+  [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+
+  <div class="accordion" id="sectorsAccordion">
+    <h2 class="tajawal-bold mb-3 register" [ngStyle]="{ 'color': mainColor }">
+      @if(currentLang === 'en'){
+      {{ uaeC.activitiesTitle }}
+      }@else{
+      {{ uaeC.activitiesTitleAr }}
+      }
+    </h2>
+    @for(activity of companyDetails.activities;track activity.id;let i =$index){
+    <div class="accordion-item">
+      <h2 class="accordion-header" [id]="'heading' + i">
+        <button class="accordion-button d-flex justify-content-between align-items-center" type="button"
+          (click)="togglePanel(i)" [ngStyle]="{'text-align' : currentLang === 'en' ? 'left' : 'right'}">
+          <span class="tajawal-medium">
+            @if(currentLang === 'en'){
+            {{ activity.name }}
+            }@else{
+            {{ activity.nameAr }}
+            }
+          </span>
+          <span class="custom-icon" [ngStyle]="{'margin' : currentLang === 'en' ? '0 0 0 1rem' : '0 1rem 0 0'}">
+            {{ openedIndex === i ? '−' : '+' }}
+          </span>
+        </button>
+      </h2>
+      <div [id]="'collapse' + i" class="accordion-collapse collapse" [class.show]="openedIndex === i"
+        [attr.aria-labelledby]="'heading' + i">
+        <section class="container innerDiv" style="background-color: #F6F6F6;  padding: 10px 10px 30px;">
+          <div class="image">
+            <img [src]="activity.image" [alt]="currentLang === 'en' ? activity.name : activity.nameAr">
+          </div>
+          <div class="text" style="max-width:550px">
+            <p>
+              @if(currentLang === 'en'){
+              {{ activity.description }}
+              }@else{
+              {{ activity.descriptionAr }}
+              }
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<!-- //inves -->
+@if(id=='1'){
+<div class="hero-video-wrapper">
+  <video #myVideo autoplay muted loop playsinline class="hero-video"
+    [attr.aria-label]="currentLang === 'en' ? uaeC.title : uaeC.titleAr"
+    [title]="currentLang === 'en' ? uaeC.title : uaeC.titleAr">
+    <source [src]="uaeC.video2" type="video/mp4" />
+    {{ 'validation.YourBrowserDoesNotSupportTheVideoTag' | translate}}.
+  </video>
+  <div class="hero-overlay">
+    <h1 class="tajawal-bold" [ngClass]="currentLang === 'en' ? 'en' : ''">{{ 'validation.WEREINVESTING' |
+      translate}}<br>
+      {{ 'validation.INTHEFUTURE' | translate}}</h1>
+  </div>
+</div>
+
+<section class="bg-white" class="text-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1400">
+  <div class="container" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+    <h2 class="tajawal-bold mb-3 register txt-cap" [ngStyle]="{ 'color': mainColor }">+15 {{
+      'validation.yearsOfExcellence' | translate}}</h2>
+
+    <div class="d-flex flex-wrap gap-3 w-100">
+      <div class="flex-card" *ngFor="let inv of invExcellence">
+        <div class="p-3 rounded-4 shadow-sm d-flex align-items-center h-100">
+          <div class="highlight-box" [ngStyle]="{'margin' : currentLang === 'en' ? '0 0.5rem 0 0' : '0 0 0 0.5rem'}">
+            <span class="highlight-number tajawal-bold" [ngStyle]="{ 'color': mainColor }">{{ inv.value }}</span>
+          </div>
+          <div class="text-start">
+            <div class="highlight-text tajawal-medium txt-cap"
+              [ngStyle]="{'text-align' : currentLang === 'en' ? 'left' : 'right'}">
+              {{ currentLang === 'en' ? inv.desc : inv.descAr }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+}
+
+<!-- //properties -->
+@if(properties.length > 0 && id=='2'){
+<section class="text-center my-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1400"
+  [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+  <div class="container">
+    <h2 class="tajawal-bold mb-0 register" [ngStyle]="{ 'color': mainColor }">{{ 'validation.ExploreOurProperties' |
+      translate}}</h2>
+    <p class="mb-3 text-muted">
+      {{ 'validation.ExploreOurPropertiesDesc' | translate}}
+    </p>
+    <div class="property-grid w-100">
+      <div class="card h-100 shadow-sm" *ngFor="let property of properties; let i = index" data-aos="fade-up"
+        [attr.data-aos-delay]="i * 100">
+        <img [src]="property.image" class="card-img-top"
+          [alt]="currentLang === 'en' ? property.name : property.nameAr" />
+        <div class="card-body">
+          <h5 class="card-title tajawal-bold" [ngStyle]="{ 'color': mainColor }">
+            @if(currentLang === 'en'){
+            {{ property.name }}
+            }@else{
+            {{ property.nameAr }}
+            }
+          </h5>
+          <p class="tajawal-medium mb-0">
+            {{ 'validation.from' | translate}} {{ property.price }}
+            @if(currentLang === 'en'){
+            {{ property.currency }}
+            }@else{
+            {{ property.currencyAr }}
+            }
+            <span class="tajawal-bold" [ngStyle]="{ 'color': mainColor }">{{
+              'validation.AED' | translate}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="text-center mt-5" data-aos="fade-up" data-aos-delay="450" data-aos-duration="1600"
+  style="background-color: #F6F6F6;" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+  <div class="container">
+    <h2 class="tajawal-bold mb-0 register" [ngStyle]="{ 'color': mainColor }">{{ 'validation.WhyUAEGroup' | translate }}
+      @if(currentLang === 'en'){
+      ?
+      }@else{
+      ؟
+      }
+    </h2>
+    <p class="text-muted mb-3">
+      {{ 'validation.WhyUAEGroupDesc' | translate}}
+    </p>
+
+    <div class="row gy-5 align-items-center w-100">
+      <!-- Stats section -->
+      @if(stats.length > 0){
+      <div class="col-12 col-lg-6">
+        <div class="row g-3">
+          <div class="col-12 col-sm-6" *ngFor="let stat of stats">
+            <div class="p-4 shadow-sm rounded bg-white text-center h-100">
+              <i [class]="'bi ' + stat.icon" [ngStyle]="{ color: mainColor }"
+                class="d-block mx-auto display-3 display-md-2 display-lg-1">
+              </i>
+              <h4 class="tajawal-bold mt-3 mb-1">{{ stat.value }}</h4>
+              <p class="text-muted mb-0 small txt-cap">
+                @if(currentLang === 'en'){
+                {{ stat.label }}
+                }@else{
+                {{ stat.labelAr }}
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+
+      <!-- Video or Image section -->
+      <div class="col-12 col-lg-6 text-center">
+        <div class="video">
+          <video #myVideo autoplay muted loop playsinline
+            [attr.aria-label]="currentLang === 'en' ? uaeC.title : uaeC.titleAr"
+            [title]="currentLang === 'en' ? uaeC.title : uaeC.titleAr">
+            <source [src]="uaeC.video2" type="video/mp4" />
+            {{ 'validation.YourBrowserDoesNotSupportTheVideoTag' | translate}}.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}
+
+<!-- //UAE Information Systems -->
+@if(id=='3'){
+<div class="hero-video-wrapper" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+  <video #myVideo autoplay muted loop playsinline class="hero-video"
+    [attr.aria-label]="currentLang === 'en' ? uaeC.title : uaeC.titleAr"
+    [title]="currentLang === 'en' ? uaeC.title : uaeC.titleAr">
+    <source [src]="uaeC.video2" type="video/mp4" />
+    {{ 'validation.YourBrowserDoesNotSupportTheVideoTag' | translate}}.
+  </video>
+  <div class="hero-overlay">
+    <h1 class="tajawal-bold" [ngClass]="currentLang === 'en' ? 'en' : ''">{{ 'validation.SmartInfrastructure' |
+      translate}}
+      <!-- @if(currentLang === 'en'){,}@else{،} -->
+      <br>
+      {{ 'validation.RealResults' | translate}}
+    </h1>
+  </div>
+</div>
+
+}

@@ -1,0 +1,15 @@
+<div class="search-wrapper position-relative">
+    <input type="search" class="form-control form-control-dark" [(ngModel)]="searchText" (input)="onInputChange()"
+        [placeholder]="'validation.Search' | translate" aria-label="Search" />
+
+    <ul *ngIf="showResults" class="search-results list-group mt-1 position-absolute w-100 p-0"
+        style="z-index: 999;background-color: #fff;">
+        <li *ngFor="let item of results" class="list-group-item list-group-item-action"
+            (click)=" isPage(item) ? goToPage(item.path) : goToCompany(item)">
+            {{ currentLang === 'en' ? item.title : item.titleAr }}
+        </li>
+        <li *ngIf="results.length === 0" class="list-group-item text-muted">
+            {{ 'No results found' }}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,235 @@
+/* Desktop */
+ul {
+    list-style-type: none;
+}
+
+/* header */
+header {
+    background-color: white;
+    /* position: relative;
+    z-index: 100; */
+    height: 121px;
+}
+
+header::before,
+header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    z-index: -1;
+}
+
+header::before {
+    top: 0;
+    background: linear-gradient(to right, #ffffff 0%, #ec1c23 50%, #ffffff 100%);
+}
+
+header::after {
+    bottom: 0;
+    background: linear-gradient(to right, #ffffff 0%, #ec1c23 50%, #ffffff 100%);
+}
+
+/* logo */
+.logo {
+    width: 180px;
+    height: auto;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+ul {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li {
+    background-color: #ec1c23;
+    border-color: #ec1c23;
+    border: solid 2px;
+    text-align: center;
+    width: 112px !important;
+    color: #fff;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+ul li a {
+    display: block;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: transparent;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+ul li a:hover,
+ul li a.active {
+    border-color: #ec1c23;
+    background-color: #ffffff !important;
+    color: #ec1c23 !important;
+    transition: 0.4s ease-in-out;
+}
+
+a {
+    color: inherit;
+}
+
+ul li a:hover,
+.lang-hover:hover {
+    color: #ec1c23 !important;
+    transition: 0.4s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #ec1c23 !important;
+    box-shadow: 0 0 0 0.25rem rgba(236, 28, 35, 0.25) !important;
+    transition: 0.4s ease-in-out;
+}
+
+.navbar {
+    display: none;
+}
+
+/* mobile */
+
+
+@media (max-width: 1200px) {
+    .header {
+        display: none;
+    }
+
+    .navbar {
+        display: block;
+    }
+
+    .navbar ul li {
+        width: 100% !important;
+    }
+
+    header {
+        height: 92px;
+    }
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-color: #ec1c23 !important;
+    transition: 0.4s ease-in-out;
+}
+
+/* Dropdown submenu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .submenu {
+    display: none;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    flex-direction: column;
+    background-color: #ec1c23;
+    border-radius: 8px;
+    padding: 0;
+    z-index: 1000;
+    width: max-content;
+    min-width: 150px;
+    gap: 0 !important;
+}
+
+.dropdown:hover .submenu {
+    display: flex;
+}
+
+.submenu li {
+    width: 100% !important;
+    background-color: #ec1c23;
+    border: none;
+    border-bottom: 1px solid #fff;
+    border-radius: 0;
+}
+
+.submenu li:nth-child(1) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.submenu li:nth-last-child(1) {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu li a {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    color: #fff !important;
+    /* text-align: left; */
+    text-decoration: none;
+    border-radius: 0;
+}
+
+.submenu li a:hover {
+    background-color: #fff;
+    color: #ec1c23 !important;
+    transition: 0.3s ease-in-out;
+}
+
+.submenu li:nth-child(1) a:hover {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.submenu li:nth-last-child(1) a:hover {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.dropdown-toggle::after {
+    margin-inline-start: 0.255em !important;
+    /* replaces margin-left/right automatically based on direction */
+    margin: 0 !important;
+}
+
+/* Mobile submenu inside offcanvas */
+@media (max-width: 1200px) {
+    .offcanvas .submenu {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex !important;
+        flex-direction: column;
+        background-color: #ec1c23;
+        border-radius: 8px;
+        padding: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .offcanvas .submenu li a {
+        text-align: left;
+        padding: 10px 15px;
+        color: #fff !important;
+    }
+
+    .offcanvas .submenu li a:hover {
+        background-color: #fff !important;
+        color: #ec1c23 !important;
+    }
+}

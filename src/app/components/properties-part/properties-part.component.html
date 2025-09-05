@@ -1,0 +1,45 @@
+<div class="propesties" id="propesties">
+    <div class="container-fluid">
+        <h2 class="special-heading tajawal-extrabold" data-aos="fade-down" data-aos-duration="800">
+            @if(currentLang === 'en'){
+            {{ uaeInternationalPropertyC.title }}
+            }@else{
+            {{ uaeInternationalPropertyC.titleAr }}
+            }
+        </h2>
+        <p [ngStyle]="{ 'color': mainColor }" data-aos="fade-down" data-aos-duration="1000">
+            @if(currentLang === 'en'){
+            {{ uaeInternationalPropertyC.caption }}
+            }@else{
+            {{ uaeInternationalPropertyC.captionAr }}
+            }
+        </p>
+        <div class="propesties-content">
+
+            <div class="col" data-aos="fade-down" data-aos-duration="1400">
+                <div class="image image-column">
+                    <img [src]="uaeInternationalPropertyC.image1"
+                        [alt]="currentLang === 'en' ? uaeInternationalPropertyC.title : uaeInternationalPropertyC.titleAr" />
+                </div>
+            </div>
+
+            <div class="col info" data-aos="fade-down" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}"
+                data-aos-duration="1400">
+                <p class="tajawal-regular">
+                    @if(currentLang === 'en'){
+                    {{ uaeInternationalPropertyC.description1 }}
+                    }@else{
+                    {{ uaeInternationalPropertyC.description1Ar }}
+                    }
+                </p>
+                <p class="tajawal-regular">
+                    @if(currentLang === 'en'){
+                    {{ uaeInternationalPropertyC.description2 }}
+                    }@else{
+                    {{ uaeInternationalPropertyC.description2Ar }}
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

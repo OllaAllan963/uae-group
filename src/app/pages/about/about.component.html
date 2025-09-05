@@ -1,0 +1,93 @@
+<section class="headings d-flex justify-content-center align-items-center mb-3" [ngStyle]="{
+    'background': 'linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url(' + backgroundImage + ') no-repeat center center',
+    'background-size': 'cover'
+  }">
+    <div class="text-heading text-center">
+        <div class="container">
+            <h1 class="tajawal-extrabold" [ngStyle]="{'letter-spacing' : currentLang === 'en' ? '6px' : '0px'}">{{
+                'validation.AboutUs' | translate}}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="container" data-aos="fade-up" data-aos-duration="800">
+    <div class="text">
+        <p [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+            <strong>{{ 'validation.UAEGROUP' | translate}}</strong> {{ 'validation.UAEfirstDesc' | translate}}
+        </p>
+    </div>
+    <div class="image">
+        <img src="assets/images/about-us3.webp" [alt]="'validation.AboutUs' | translate">
+    </div>
+</section>
+
+<section class="objectives-section" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
+    <div class="container objectives-container">
+        <div class="image">
+            <img src="assets/images/about-us5.webp" [alt]="'validation.OurObjectives' | translate" />
+        </div>
+        <div class="objectives-content" [attr.dir]="currentLang === 'en' ? 'ltr' : 'rtl'" [ngStyle]="{
+    'direction': currentLang === 'en' ? 'ltr' : 'rtl',
+    'text-align': currentLang === 'en' ? 'left' : 'right'
+}">
+            <h2 [ngStyle]="{ 'color': mainColor }">{{ 'validation.OurObjectives' | translate}}</h2>
+            <ul>
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">{{ 'validation.obj1' |
+                    translate}}</li>
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">{{ 'validation.obj2' |
+                    translate}}</li>
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">{{ 'validation.obj3' |
+                    translate}}</li>
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">{{ 'validation.obj4' |
+                    translate}}</li>
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">{{ 'validation.obj5' |
+                    translate}}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="container" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1400">
+    <div class="values-content">
+        <h2 [ngStyle]="{ 'color': mainColor,'text-align': currentLang === 'en' ? 'left' : 'right' }">{{
+            'validation.OurValues' | translate}}</h2>
+        <div class="value-item" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl','border-left': currentLang === 'en' ? '3px solid #ec1c23' : 'none',
+    'border-right': currentLang === 'ar' ? '3px solid #ec1c23' : 'none',
+    'padding-left': currentLang === 'en' ? '20px' : '0',
+    'padding-right': currentLang === 'ar' ? '20px' : '0'}">
+            <h3 [ngStyle]="{ 'color': mainColor }"><span class="value-title">{{ 'validation.Aspiration' |
+                    translate}}:</span></h3>
+            <p>{{ 'validation.AspirationDesc' | translate}}</p>
+        </div>
+
+        <div class="value-item" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl','border-left': currentLang === 'en' ? '3px solid #ec1c23' : 'none',
+    'border-right': currentLang === 'ar' ? '3px solid #ec1c23' : 'none',
+    'padding-left': currentLang === 'en' ? '20px' : '0',
+    'padding-right': currentLang === 'ar' ? '20px' : '0'}">
+            <h3 [ngStyle]="{ 'color': mainColor }"><span class="value-title">{{ 'validation.Excellence' |
+                    translate}}:</span></h3>
+            <p>{{ 'validation.ExcellenceDesc' | translate}}</p>
+        </div>
+
+        <div class="value-item" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl','border-left': currentLang === 'en' ? '3px solid #ec1c23' : 'none',
+    'border-right': currentLang === 'ar' ? '3px solid #ec1c23' : 'none',
+    'padding-left': currentLang === 'en' ? '20px' : '0',
+    'padding-right': currentLang === 'ar' ? '20px' : '0'}">
+            <h3 [ngStyle]="{ 'color': mainColor }"><span class="value-title">{{ 'validation.Integrity' |
+                    translate}}:</span></h3>
+            <p>{{ 'validation.IntegrityDesc' | translate}}</p>
+        </div>
+
+        <div class="value-item" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl','border-left': currentLang === 'en' ? '3px solid #ec1c23' : 'none',
+    'border-right': currentLang === 'ar' ? '3px solid #ec1c23' : 'none',
+    'padding-left': currentLang === 'en' ? '20px' : '0',
+    'padding-right': currentLang === 'ar' ? '20px' : '0'}">
+            <h3 [ngStyle]="{ 'color': mainColor }"><span class="value-title">{{ 'validation.Commitment' |
+                    translate}}:</span></h3>
+            <p>{{ 'validation.CommitmentDesc' | translate}}</p>
+        </div>
+    </div>
+    <div class="image">
+        <img src="assets/images/about-us6.webp" [alt]="'validation.OurValues' | translate">
+    </div>
+</div>

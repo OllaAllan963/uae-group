@@ -1,0 +1,154 @@
+<section class="headings d-flex justify-content-center align-items-center mb-3" [ngStyle]="{
+    'background': 'linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url(' + backgroundImage + ') no-repeat center center',
+    'background-size': 'cover'
+  }">
+    <div class="text-heading text-center">
+        <div class="container">
+            <h1 class="tajawal-extrabold" [ngStyle]="{'letter-spacing' : currentLang === 'en' ? '6px' : '0px'}">{{
+                'validation.Purpose' | translate}}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="objectives-section" data-aos="fade-up" data-aos-duration="800"
+    style="background-color: #fff !important;">
+    <div class="container objectives-container">
+        <div class="objectives-content" [attr.dir]="currentLang === 'en' ? 'ltr' : 'rtl'" [ngStyle]="{
+    'direction': currentLang === 'en' ? 'ltr' : 'rtl',
+    'text-align': currentLang === 'en' ? 'left' : 'right'
+}">
+            <h2 [ngStyle]="{ 'color': mainColor }">
+                @if(currentLang === 'en'){
+                {{ouePurpose[0].title}}
+                }@else{
+                {{ouePurpose[0].titleAr}}
+                }</h2>
+            <p style="padding-left:0 !important">
+                @if(currentLang === 'en'){
+                {{ouePurpose[0].description}}
+                }@else{
+                {{ouePurpose[0].descriptionAr}}
+                }
+            </p>
+            <ul>
+                @if(currentLang === 'en'){
+                @for(point of ouePurpose[0].points;track point.id){
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">
+                    {{point}}
+                </li>
+                }
+                }@else{
+                @for(point of ouePurpose[0].pointsAr;track point.id){
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">
+                    {{point}}
+                </li>
+                }
+                }
+
+            </ul>
+        </div>
+
+        <div class="image">
+            <img [src]="ouePurpose[0].image"
+                [alt]="currentLang === 'en' ? ouePurpose[0].title : ouePurpose[0].titleAr" />
+        </div>
+    </div>
+</section>
+
+<section class="objectives-section" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1000">
+    <div class="container objectives-container">
+        <div class="image">
+            <img [src]="ouePurpose[1].image"
+                [alt]="currentLang === 'en' ? ouePurpose[1].title : ouePurpose[1].titleAr" />
+        </div>
+        <div class="objectives-content" [attr.dir]="currentLang === 'en' ? 'ltr' : 'rtl'" [ngStyle]="{
+    'direction': currentLang === 'en' ? 'ltr' : 'rtl',
+    'text-align': currentLang === 'en' ? 'left' : 'right'
+}">
+            <h2 [ngStyle]="{ 'color': mainColor }">
+                @if(currentLang === 'en'){
+                {{ouePurpose[1].title}}
+                }@else{
+                {{ouePurpose[1].titleAr}}
+                }
+            </h2>
+            <p style="padding-left:0 !important">
+                @if(currentLang === 'en'){
+                {{ouePurpose[1].description}}
+                }@else{
+                {{ouePurpose[1].descriptionAr}}
+                }
+            </p>
+            <ul>
+                @if(currentLang === 'en'){
+                @for(point of ouePurpose[1].points;track point.id){
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">
+                    {{point}}
+                </li>
+                }
+                }@else{
+                @for(point of ouePurpose[1].pointsAr;track point.id){
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">
+                    {{point}}
+                </li>
+                }
+                }
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- parallax.component.html -->
+<section class="parallax-section d-flex align-items-center justify-content-center text-white"
+    [ngStyle]="{ 'background-image': 'url(' + imageUrl + ')' }">
+    <div class="content text-center">
+        <h3 class="tajawal-medium" [ngClass]="currentLang === 'en' ? 'en' : ''">{{ 'validation.PurposeDesc' |
+            translate}}</h3>
+    </div>
+</section>
+
+<section class="objectives-section" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1400"
+    style="background-color: #fff !important;">
+    <div class="container objectives-container">
+        <div class="objectives-content" [attr.dir]="currentLang === 'en' ? 'ltr' : 'rtl'" [ngStyle]="{
+    'direction': currentLang === 'en' ? 'ltr' : 'rtl',
+    'text-align': currentLang === 'en' ? 'left' : 'right'
+}">
+            <h2 [ngStyle]="{ 'color': mainColor }">
+                @if(currentLang === 'en'){
+                {{ouePurpose[2].title}}
+                }@else{
+                {{ouePurpose[2].titleAr}}
+                }</h2>
+            <p style="padding-left:0 !important">
+                @if(currentLang === 'en'){
+                {{ouePurpose[2].description}}
+                }@else{
+                {{ouePurpose[2].descriptionAr}}
+                }
+            </p>
+            <ul>
+                @if(currentLang === 'en'){
+                @for(point of ouePurpose[2].points;track point.id){
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">
+                    {{point}}
+                </li>
+                }
+                }@else{
+                @for(point of ouePurpose[2].pointsAr;track point.id){
+                <li [ngStyle]="{'padding' : currentLang === 'en' ? '0 0 0 25px' : '0 25px 0 0'}">
+                    {{point}}
+                </li>
+                }
+                }
+
+            </ul>
+        </div>
+
+        <div class="image">
+            <img [src]="ouePurpose[2].image"
+                [alt]="currentLang === 'en' ? ouePurpose[2].title : ouePurpose[2].titleAr" />
+        </div>
+    </div>
+</section>

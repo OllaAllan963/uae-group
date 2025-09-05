@@ -1,0 +1,66 @@
+<!-- slider -->
+@if(companies){
+<div class="slider">
+  <!-- Main Items -->
+  <div class="list">
+    @for(company of companies;track company.id;let i=$index){
+    <div class="company" [class.active]="i === itemActive"
+      [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+      <img [src]="company.image" [alt]="currentLang === 'en' ? company.title : company.titleAr" />
+      <div class="content" [ngStyle]="{
+  'left': currentLang === 'en' ? '10%' : 'auto',
+  'right': currentLang === 'ar' ? '10%' : 'auto'
+}">
+        @if(currentLang === 'en'){
+        <p class="mb-2 en tajawal-bold">UAE GROUP</p>
+        }@else{
+        <p class="mb-2 tajawal-bold">{{ 'validation.UAEGROUP' | translate}}</p>
+        }
+
+        <h2 class="mb-2 tajawal-bold text-uppercase">
+          @if(currentLang === 'en'){
+          {{ company.title }}
+          }@else{
+          {{ company.titleAr }}
+          }
+        </h2>
+        <p class="topic tajawal-medium">
+          @if(currentLang === 'en'){
+          {{ company.caption }}
+          }@else{
+          {{ company.captionAr }}
+          }
+        </p>
+      </div>
+    </div>
+    }
+  </div>
+
+  <!-- Navigation Arrows -->
+  <div class="arrows" [ngStyle]="{
+  'right': currentLang === 'en' ? '50px' : 'auto',
+  'left': currentLang === 'ar' ? '50px' : 'auto'
+}">
+    <button (click)="prev()"> &lt; </button>
+    <button (click)="next()"> &gt; </button>
+  </div>
+
+  <!-- Thumbnails -->
+  <div class="thumbnail" #thumbnailContainer>
+    @for(company of companies;track company.id;let i=$index){
+    <a (click)="goToCompany(company)" style="cursor: pointer;">
+      <div class="company" [class.active]="i === itemActive" (click)="select(i)" #thumbnailRef>
+        <img [src]="company.image" [alt]="currentLang === 'en' ? company.title : company.titleAr" />
+        <div class="content tajawal-medium text-uppercase">
+          @if(currentLang === 'en'){
+          {{ company.title }}
+          }@else{
+          {{ company.titleAr }}
+          }
+        </div>
+      </div>
+    </a>
+    }
+  </div>
+</div>
+}

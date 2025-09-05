@@ -1,0 +1,121 @@
+ .headings {
+     margin-top: 121px;
+     /* background: linear-gradient(rgba(18, 27, 34, 0.6), rgba(18, 27, 34, 0.6)), url('/assets/images/about-us.jpg') no-repeat center center; */
+     width: 100%;
+     height: 50vh;
+     background-size: cover;
+ }
+
+ .text-heading {
+     display: -webkit-box;
+     display: -ms-flexbox;
+     display: flex;
+     -webkit-box-flex: 1;
+     -ms-flex: 1 1 auto;
+     flex: 1 1 auto;
+     -webkit-box-align: center;
+     -ms-flex-align: center;
+     align-items: center;
+ }
+
+ .headings h1 {
+    line-height: 1.5 !important;
+     color: #fff;
+     font-size: 3.5rem;
+     text-transform: uppercase;
+     letter-spacing: 10px;
+ }
+
+
+ @media (max-width: 1200px) {
+     .headings {
+         margin-top: 92px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .headings h1 {
+         font-size: 3rem;
+     }
+
+     .container {
+         padding: 60px 15px;
+     }
+ }
+
+ /* //sec part */
+ .sec-title {
+     text-align: center;
+     padding-bottom: 2rem;
+     margin-left: .5rem;
+ }
+
+ .sec-title h2 {
+     text-transform: capitalize;
+     font-size: 40px;
+     line-height: 46px;
+ }
+
+ .sec-title p {
+     font-size: 18px;
+     line-height: 26px;
+     color: #000000;
+     text-transform: capitalize;
+ }
+
+ /* third sec */
+ .btn-custom {
+     color: white;
+     padding: 6px 24px;
+     border-radius: 8px;
+     border-color: #ec1c23;
+     border: solid 2px;
+     text-align: center;
+     box-sizing: border-box;
+     font-size: 18px;
+ }
+
+ .btn-custom:hover,
+ .btn-custom:active {
+     cursor: pointer;
+     border-color: #ec1c23;
+     background: #ffffff !important;
+     color: #ec1c23 !important;
+     border: solid 2px;
+     transition: 0.4s ease-in-out;
+ }
+
+ .form-control:focus,
+ .is-invalid {
+     border-color: #ec1c23 !important;
+     box-shadow: 0 0 0 0.25rem rgba(236, 28, 35, 0.25) !important;
+     transition: 0.4s ease-in-out;
+ }
+
+ .was-validated textarea.rtl.form-control:invalid,
+ textarea.rtl.form-control.is-invalid {
+     padding-left: calc(1.5em + 0.75rem) !important;
+     padding-right: 0.75rem !important;
+     background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem) !important;
+ }
+
+ .was-validated #email.rtl.form-control:invalid,
+ #email.rtl.form-control.is-invalid {
+     padding-left: calc(1.5em + 0.75rem) !important;
+     padding-right: 0.75rem !important;
+     background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem) !important;
+ }
+
+ .was-validated #fullName.rtl.form-control:invalid,
+ #fullName.rtl.form-control.is-invalid {
+     padding-left: calc(1.5em + 0.75rem) !important;
+     padding-right: 0.75rem !important;
+     background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem) !important;
+ }
+
+ .was-validated #resume.rtl.form-control:invalid,
+ #resume.rtl.form-control.is-invalid {
+     padding-left: calc(1.5em + 0.75rem) !important;
+     padding-right: 0.75rem !important;
+     background-position: top calc(0.375em + 0.1875rem) left calc(0.375em + 0.1875rem) !important;
+ }

@@ -1,0 +1,49 @@
+<!-- START SECTION WHY CHOOSE US -->
+@if(chooseUs.length > 0){
+<section class="how-it-works bg-white rec-pro">
+    <div class="container-fluid">
+        <div class="sec-title">
+            <h2 class="tajawal-bold" [ngStyle]="{ 'color': mainColor }" data-aos="fade-up" data-aos-duration="800">
+                {{ 'validation.WhyChooseUs' | translate }}
+                @if(currentLang === 'en'){
+                ?
+                }@else{
+                ؟
+                }
+            </h2>
+            <p class="tajawal-regular" data-aos="fade-up" data-aos-duration="1000"
+                [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">{{ 'validation.WhyChooseUsDesc' |
+                translate }}</p>
+        </div>
+        <div class="row service-1" data-aos="fade-up" data-aos-duration="1400">
+            @for(item of chooseUs;track item.id;let i =$index){
+            <article class="col-lg-3 col-md-6 col-xs-12 serv mb-3"
+                [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+                <div class="serv-flex">
+                    <div class="art-1 img-13">
+                        <img [src]="item.image" [alt]="currentLang === 'en' ? item.name : item.nameAr">
+                        <h3 class="tajawal-bold">
+                            @if(currentLang === 'en'){
+                            {{ item.name }}
+                            }@else{
+                            {{ item.nameAr }}
+                            }
+                        </h3>
+                    </div>
+                    <div class="service-text-p">
+                        <p class="text-center tajawal-regular">
+                            @if(currentLang === 'en'){
+                            {{ item.description }}
+                            }@else{
+                            {{ item.descriptionAr }}
+                            }
+                        </p>
+                    </div>
+                </div>
+            </article>
+            }
+        </div>
+    </div>
+</section>
+}
+<!-- END SECTION WHY CHOOSE US -->

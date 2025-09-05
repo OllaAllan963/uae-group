@@ -1,0 +1,18 @@
+<div class="toast-container position-fixed p-3" style="z-index: 9999; bottom: 1rem;" *ngIf="message" [ngStyle]="{
+  'direction': currentLang === 'en' ? 'ltr' : 'rtl',
+  'right': currentLang === 'en' ? '1rem' : null,
+  'left': currentLang === 'ar' ? '1rem' : null}">
+    <div class="toast show align-items-center text-white border-0" [ngClass]="{
+      'bg-success': type === 'success',
+      'bg-danger': type === 'error'
+    }" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="toast-body">
+                {{ message }}
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto p-3" (click)="manualClose()"
+                aria-label="Close"
+                [ngStyle]="{ 'margin-left': currentLang === 'ar' ? 'inherit !important' : '' }"></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<section class="properties-section bg-white">
+    <div class="container-fluid">
+        <div class="section-title text-center">
+            <h2 class="tajawal-bold" [ngStyle]="{ 'color': mainColor }" data-aos="fade-up" data-aos-duration="800">
+                @if(currentLang === 'en'){
+                {{ uaeInternationalPropertyCActs.title }}
+                }@else{
+                {{ uaeInternationalPropertyCActs.titleAr }}
+                }
+            </h2>
+            <p class="tajawal-regular" data-aos="fade-up" data-aos-duration="1000">
+                @if(currentLang === 'en'){
+                {{ uaeInternationalPropertyCActs.caption }}
+                }@else{
+                {{ uaeInternationalPropertyCActs.captionAr }}
+                }
+            </p>
+        </div>
+        <div *ngIf="uaeInternationalPropertyCActs" class="news-wrap" data-aos="fade-up" data-aos-duration="1400"
+            [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+            <div class="row">
+                <div class="col-xl-6 col-md-12 col-12">
+                    @for(activity of uaeInternationalPropertyCActs.activities;track activity.id){
+                    @if(activity.id <= 2){ <div class="news-item news-item-sm">
+                        <a class="news-img-link">
+                            <div class="news-item-img">
+                                <img class="resp-img" [src]="activity.image"
+                                    [alt]="currentLang === 'en' ? activity.name : activity.nameAr">
+                            </div>
+                        </a>
+                        <div class="news-item-text" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+                            <a>
+                                <h3 class="tajawal-medium">
+                                    @if(currentLang === 'en'){
+                                    {{ activity.name }}
+                                    }@else{
+                                    {{ activity.nameAr }}
+                                    }
+                                </h3>
+                            </a>
+                            <div class="news-item-descr">
+                                <p>
+                                    @if(currentLang === 'en'){
+                                    {{ activity.description }}
+                                    }@else{
+                                    {{ activity.descriptionAr }}
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                </div>
+                }
+                }
+            </div>
+            <div class="col-xl-6 col-md-12 col-12">
+                @for(activity of uaeInternationalPropertyCActs.activities;track activity.id){
+                @if(activity.id > 2){
+                <div class="news-item news-item-sm">
+                    <a class="news-img-link">
+                        <div class="news-item-img">
+                            <img class="resp-img" [src]="activity.image"
+                                [alt]="currentLang === 'en' ? activity.name : activity.nameAr">
+                        </div>
+                    </a>
+                    <div class="news-item-text" [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}">
+                        <a>
+                            <h3 class="tajawal-medium">
+                                @if(currentLang === 'en'){
+                                {{ activity.name }}
+                                }@else{
+                                {{ activity.nameAr }}
+                                }
+                            </h3>
+                        </a>
+                        <div class="news-item-descr">
+                            <p>
+                                @if(currentLang === 'en'){
+                                {{ activity.description }}
+                                }@else{
+                                {{ activity.descriptionAr }}
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                }
+                }
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

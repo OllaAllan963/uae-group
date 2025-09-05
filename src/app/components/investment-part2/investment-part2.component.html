@@ -1,0 +1,31 @@
+<div class="inv">
+    <div class="container-fluid">
+        <div [ngStyle]="{'direction' : currentLang === 'en' ? 'ltr' : 'rtl'}" class="investments-content">
+            <!-- Left Column -->
+            <div data-aos="fade-down" data-aos-duration="1400">
+                <img [src]="img1" [alt]="'validation.WhyInvestintheUAE' | translate" class="img-fluid mb-3" />
+                <h3 class="tajawal-bold">
+                    {{ 'validation.WhyInvestintheUAE' | translate }}
+                    @if(currentLang === 'en'){
+                    ?
+                    }@else{
+                    ؟
+                    }
+                </h3>
+                <p class="tajawal-regular">
+                    {{ 'validation.WhyInvestDesc' | translate }}
+                </p>
+            </div>
+
+            <!-- Right Column -->
+            <div data-aos="fade-down" data-aos-duration="1400">
+                <h3 class="tajawal-bold">{{ 'validation.DiverseInvestmentOpportunities' | translate }}</h3>
+                <p class="tajawal-regular">
+                    {{ 'validation.DiverseInvestmentOpportunitiesDesc' | translate }}
+                </p>
+                <img [src]="img2" [alt]="'validation.DiverseInvestmentOpportunities' | translate"
+                    class="img-fluid mt-3" />
+            </div>
+        </div>
+    </div>
+</div>
